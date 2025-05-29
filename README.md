@@ -70,3 +70,26 @@ Common scenarios:
 
     Cost optimization: Assign pods to cheaper nodes if performance is less critical.
 
+**Why is Helm important for managing configuration across different environments (like dev, staging, prod)?**
+
+Helm is like a recipe book for your app. In a real-world company, the same app runs in different places — like dev for testing, staging for review, and production for real users.
+
+Each place needs slightly different settings — maybe different image tags, replica counts, or service types.
+
+Instead of writing separate YAMLs again and again, Helm lets me write one flexible chart, and I just change a few values in a file called values.yaml for each environment.
+
+So it saves time, avoids mistakes, and makes things consistent across all environments.
+
+**How does Helm simplify deployment rollback during a production incident?**
+
+Sometimes we release something new and it breaks in production. 
+
+Helm keeps track of all the past deployments like a version history.
+
+If something goes wrong, I can simply run:
+
+    helm rollback my-app 1
+
+And Helm will go back to the previous working version, just like undoing a change.
+
+This is much easier than editing YAML files manually or trying to guess what changed.
